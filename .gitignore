@@ -2,3 +2,10 @@ cutest-build
 cutest_variables
 cutest_answers
 tmpdir
+AUTOMAT.d
+ELFUN.*
+EXTER.*
+GROUP.*
+OUTSDIF.d
+RANGE.*
+main
