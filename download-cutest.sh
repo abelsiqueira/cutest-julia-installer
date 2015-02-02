@@ -8,6 +8,7 @@ cmd="svn checkout -q --username anonymous --password ""
 url="http://ccpforge.cse.rl.ac.uk/svn/cutest/"
 for name in archdefs sifdecode cutest sif
 do
+  echo "Downloading $name"
   $cmd $url/$name/trunk $install_dir/$name
 done
 
