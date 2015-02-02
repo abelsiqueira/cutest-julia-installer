@@ -24,3 +24,6 @@ n3
 nyyd
 EOF
 ./install_optsuite < cutest_answers
+
+cd ../cutest-shared
+make

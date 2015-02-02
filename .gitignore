@@ -10,3 +10,5 @@ OUTSDIF.d
 RANGE.*
 main
 cutest_install_dir
+*.so
+cutest.mod

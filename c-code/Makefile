@@ -1,6 +1,7 @@
 SIF = ELFUN EXTER GROUP RANGE
-LIB = -L$(CUTEST)/objects/$(MYARCH)/double -lcutest -lgfortran -lgfortranbegin \
-			-lpthread -lm
+#LIB = -L$(CUTEST)/objects/$(MYARCH)/double -lcutest -lgfortran -lgfortranbegin \
+			#-lpthread -lm
+LIB = -L../cutest-shared -lcutest -lgfortran -lgfortranbegin -lpthread -lm
 
 all: sifdecode exec
 
@@ -14,7 +15,7 @@ sifdecode:
 exec: main.o $(addsuffix .o,$(SIF))
 	@gcc $^ -o main $(LIB)
 	@echo "Running"
-	@./main
+	@LD_LIBRARY_PATH=../cutest-shared ./main
 
 main.o: main.c
 	gcc -c -Wall -Wextra -I$(CUTEST)/include main.c -o main.o
