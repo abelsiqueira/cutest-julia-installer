@@ -3,6 +3,7 @@ TOOLS = $(shell ls $(CUTEST)/src/tools/{c,u}*.f90)
 OBJS = $(patsubst %.f90,%.o,$(TOOLS))
 
 all: cutest.mod $(OBJS)
+	ld -shared -o libcutest.so $(notdir $(OBJS))
 
 cutest.mod:
 	cp $(CUTEST)/modules/$(MYARCH)/double/cutest.mod .
