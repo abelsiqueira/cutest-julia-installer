@@ -2,6 +2,7 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y gfortran
 install: ./install-cutest.sh
+script: ./test-cutest.sh
 notifications:
   email:
     on_success: always
