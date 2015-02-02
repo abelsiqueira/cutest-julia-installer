@@ -1,5 +1,6 @@
 #!/bin/bash
-install_dir=cutest-build
+# This should work for MAC too:
+install_dir=$(cd "$(dirname "$0")"; pwd)/cutest-build
 mkdir -p $install_dir
 
 cmd="svn checkout -q --username anonymous --password ""
