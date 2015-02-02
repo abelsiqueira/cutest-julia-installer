@@ -7,7 +7,7 @@ all: sifdecode exec
 sifdecode:
 	@if [ -z "$(PROBNAME)" ]; then echo "Run as make PROBNAME=..." && exit 1; fi
 	@echo "Decoding $(PROBNAME)"
-	@$(SIFDECODE)/bin/sifdecoder $(MASTSIF)/$(PROBNAME).SIF &> /dev/null
+	@$(SIFDECODE)/bin/sifdecoder $(MASTSIF)/$(PROBNAME).SIF
 	@gfortran -c $(addsuffix .f,$(SIF))
 	@rm -f AUTOMAT.d
 
