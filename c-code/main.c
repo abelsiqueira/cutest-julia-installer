@@ -2,8 +2,8 @@
 #include "cutest.h"
 
 int MAINENTRY() {
-  double *x, *bl, *bu;
-  double *y = 0, *cl = 0, *cu = 0;
+  double *x, *bl, *bu, f;
+  double *y = 0, *cl = 0, *cu = 0, *c;
   logical *equatn, *linear;
   integer efirst = 0, lfirst = 0, nvfirst = 0;
   char pname[10], *vnames, *cnames;
@@ -24,6 +24,7 @@ int MAINENTRY() {
     y  = (doublereal *) malloc(sizeof(doublereal) * ncon);
     cl = (doublereal *) malloc(sizeof(doublereal) * ncon);
     cu = (doublereal *) malloc(sizeof(doublereal) * ncon);
+    c  = (doublereal *) malloc(sizeof(doublereal) * ncon);
 
     equatn = (logical *) malloc(sizeof(logical) * ncon);
     linear = (logical *) malloc(sizeof(logical) * ncon);
@@ -42,6 +43,14 @@ int MAINENTRY() {
   printf("%9s\n", pname);
   printf("Number of variables: %d\n", nvar);
   printf("Number of constraints: %d\n", ncon);
+
+  if (ncon > 0) {
+    CUTEST_cfn(&status, &nvar, &ncon, x, &f, c);
+  } else {
+    CUTEST_ufn(&status, &nvar, x, &f);
+  }
+
+  printf("f = %lf\n", f);
 
   if (ncon > 0) {
     free(y);
