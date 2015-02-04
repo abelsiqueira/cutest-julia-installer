@@ -1,7 +1,5 @@
 SIF = ELFUN EXTER GROUP RANGE
-#LIB = -L$(CUTEST)/objects/$(MYARCH)/double -lcutest -lgfortran -lgfortranbegin \
-			#-lpthread -lm
-LIB = -L../cutest-shared -lcutest -lgfortran -lgfortranbegin -lpthread -lm
+LIB = -lcutest -lgfortran -lgfortranbegin -lpthread -lm
 
 all: sifdecode exec
 

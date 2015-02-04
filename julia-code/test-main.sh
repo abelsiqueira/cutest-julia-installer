@@ -2,7 +2,9 @@
 
 set -e
 
-source ../cutest_variables
+if [ -z "$CUTEST" ]; then
+  source ../cutest_variables
+fi
 
 for p in $(cat hs.list)
 do
