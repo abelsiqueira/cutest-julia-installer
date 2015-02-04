@@ -7,6 +7,7 @@ install: ./install-cutest.sh
 script:
   - ./test-cutest.sh
   - cd c-code; ./test-main.sh
+  - cd julia-code; ./test-main.sh
 notifications:
   email:
     on_success: always
