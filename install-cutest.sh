@@ -27,3 +27,4 @@ EOF
 
 cd ../../cutest-shared
 make
+sudo make install

@@ -54,5 +54,7 @@ int MAINENTRY() {
   free(bl);
   free(bu);
 
+  FORTRAN_close(&funit, &ierr);
+
   return 0;
 }
