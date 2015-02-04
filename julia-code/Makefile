@@ -6,9 +6,16 @@ decode:
 	sifdecoder $(PROBNAME)
 endif
 
-compile:
-	for file in *.f; do gfortran -c -o $${file//.f/.o} $$file -fPIC; done
+SIF = ELFUN.o EXTER.o GROUP.o RANGE.o
+LIBNAME = libjuliacutest.so
+
+compile: $(LIBNAME)
+
+$(LIBNAME): $(SIF)
 	ld -shared -o libjuliacutest.so *.o -lcutest -lgfortran
+
+%.o: %.f
+	gfortran -c -o $@ $< -fPIC
 
 run:
 	LD_LIBRARY_PATH=. julia main.jl

@@ -11,6 +11,7 @@ do
   make decode PROBNAME=$p
   make compile
   make run
+  make clean
 done
 
 set +e
