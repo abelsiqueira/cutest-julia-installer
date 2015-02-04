@@ -12,7 +12,8 @@ LIBNAME = libjuliacutest.so
 compile: $(LIBNAME)
 
 $(LIBNAME): $(SIF)
-	ld -shared -o libjuliacutest.so *.o -lcutest -lgfortran
+	ld -shared -o libjuliacutest.so *.o -L/usr/lib/gcc/x86_64-linux-gnu/4.6/ \
+		-lcutest -lgfortran
 
 %.o: %.f
 	gfortran -c -o $@ $< -fPIC
