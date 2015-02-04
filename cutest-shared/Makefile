@@ -11,7 +11,7 @@ ifdef CUTEST
 endif
 
 libcutest.so: cutest.mod $(OBJS)
-	ld -shared -o libcutest.so $(notdir $(OBJS))
+	ld -shared -o libcutest.so $(OBJS)
 
 install: libcutest.so
 	cp -f libcutest.so /usr/lib/
